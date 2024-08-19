@@ -1,0 +1,160 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    width: 100vw;
+    height: 100vh;
+    background-color: #191970;
+    background-image: linear-gradient(to bottom, #87ceeb, #add4f1, #cbdbf2, #e2e5f1, #f0f0f0);
+    font-family: Roboto, serif;
+    overflow-y: hidden;
+    color: #1c262b;
+}
+
+.main-div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 30px;
+}
+
+#form-div {
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 30px 10px;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 50px;
+    width: 500px;
+    border: 2px solid #67deeb;
+    border-bottom: none;
+}
+
+.weather-widget {
+    padding: 10px;
+    width: 0;
+    height: 300px;
+    background: rgba(255, 255, 255, 0.8);
+    animation-name: makeWiderFromZero;
+    animation-duration: 0.5s;
+    animation-fill-mode: forwards;
+    border: 2px solid #67deeb;
+    display: flex;
+    justify-content: space-between;
+}
+
+.wide {
+    animation-name: makeWider;
+    animation-duration: 0.5s;
+    animation-fill-mode: forwards;
+}
+
+.input {
+    padding: 7px;
+    border-radius: 15px;
+    font-size: 1.3rem;
+    outline: 2px solid #67deeb;
+    border: none;
+}
+
+.input:focus {
+    outline: 3px solid #67deeb;
+}
+
+#submitBtn {
+    margin-top: 5px;
+    outline: 2px solid #67deeb;
+    width: 80px;
+    height: 40px;
+    border-radius: 15px;
+    border: none;
+    font-size: 1.1rem;
+    transition: background-color 0.3s;
+}
+
+#submitBtn:hover {
+    cursor: pointer;
+    background-color: #67deeb;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-wrap: nowrap;
+    gap: 5px;
+}
+
+#left, #right {
+    margin: 15px 15px 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+#feels-like-div p {
+    margin: 3px;
+}
+
+#location-text {
+    font-size: 1.2rem;
+}
+
+#stats-div p {
+    margin: 3px;
+    text-align: right;
+}
+
+#degree-text {
+    font-size: 3rem;
+    font-weight: bold;
+}
+
+#status-text {
+    font-size: 1.2rem;
+}
+
+#feels-like-text {
+    color: gray;
+}
+
+img {
+    width: 100px;
+    height: 100px;
+    object-fit: contain;
+}
+
+@keyframes makeWiderFromZero {
+    to {
+        width: 600px;
+        border-bottom-left-radius: 50px;
+        border-bottom-right-radius: 50px;
+    }
+}
+
+@keyframes makeWider {
+    to {
+        width: 600px;
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .main-div {
+        width: 100%;
+    }
+    #form-div {
+        border-radius: 0;
+        width:100%;
+        animation-fill-mode: none;
+    }
+    .weather-widget {
+        width:100%;
+        animation-fill-mode: none;
+    }
+}
